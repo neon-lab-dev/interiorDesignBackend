@@ -61,7 +61,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
   );
 
   // Notify admin about the new order
-  const adminEmail = "nishant.ranjan1984@gmail.com"; // Replace with actual admin email
+  const adminEmail = process.env.SMPT_USER; // Replace with actual admin email
   const adminOrderItems = order.orderItems
     .map(
       (item) =>
@@ -223,7 +223,7 @@ exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
   );
 
   // Notify admin about the order cancellation
-  const adminEmail = "nishant.ranjan1984@gmail.com"; // Replace with actual admin email
+  const adminEmail = process.env.SMPT_USER // Replace with actual admin email
   const adminCancelledItems = order.orderItems
     .map(
       (item) =>

@@ -17,7 +17,7 @@ exports.Contact = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Please enter all details", 400));
 
 
-  const emailMessage = `Dear Nishant,
+  const emailMessage = `Dear Space Fame Team,
   I hope this email finds you well.
 
   I wanted to bring to your attention that we've received a new message request from a user. Below are the details:
@@ -32,7 +32,7 @@ exports.Contact = catchAsyncErrors(async (req, res, next) => {
   Thank you for your attention to this matter.
   
   Best regards,
-  Java Sports Team 🏅
+  Space Frame Team
   `;
 
   const adminEmail = process.env.SMPT_USER;

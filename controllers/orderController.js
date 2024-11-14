@@ -57,7 +57,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
   await sendEmail(
     userEmail,
     "Order Confirmation",
-    `Dear ${req.user.full_name},\n\nThank you for placing an order with us. Your order has been successfully received.\n\nOrder ID: ${order._id}\nTotal Amount: ${totalPrice}\n\nOrder Items:\n${userOrderItems}\n\nWe will notify you once your order is shipped. If you have any questions, feel free to contact us.\n\nBest Regards,\nJava Sports`
+    `Dear ${req.user.full_name},\n\nThank you for placing an order with us. Your order has been successfully received.\n\nOrder ID: ${order._id}\nTotal Amount: ${totalPrice}\n\nOrder Items:\n${userOrderItems}\n\nWe will notify you once your order is shipped. If you have any questions, feel free to contact us.\n\nBest Regards,\Space Frame`
   );
 
   // Notify admin about the new order
@@ -219,7 +219,7 @@ exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
   await sendEmail(
     userEmail,
     "Order Cancellation Confirmation",
-    `Dear ${req.user.full_name},\n\nYour order (ID: ${order._id}) has been successfully cancelled.\n\nCancelled Items:\n${userCancelledItems}\n\nIf you have any further questions or concerns, please feel free to contact us.\n\nBest Regards,\nJava Sports`
+    `Dear ${req.user.full_name},\n\nYour order (ID: ${order._id}) has been successfully cancelled.\n\nCancelled Items:\n${userCancelledItems}\n\nIf you have any further questions or concerns, please feel free to contact us.\n\nBest Regards,\nSpaceFrame`
   );
 
   // Notify admin about the order cancellation
@@ -234,7 +234,7 @@ exports.cancelOrder = catchAsyncErrors(async (req, res, next) => {
   await sendEmail(
     adminEmail,
     "Order Cancellation Notification",
-    `Dear Admin,\n\nOrder (ID: ${order._id}) has been cancelled.\n\nCancelled Items:\n${adminCancelledItems}\n\nOriginal Status: ${originalStatus}\n\nPlease review and update the order status in the admin panel.\n\nBest Regards,\nJava Sports`
+    `Dear Admin,\n\nOrder (ID: ${order._id}) has been cancelled.\n\nCancelled Items:\n${adminCancelledItems}\n\nOriginal Status: ${originalStatus}\n\nPlease review and update the order status in the admin panel.\n\nBest Regards,\n Space Frame`
   );
 
   // Respond to the client

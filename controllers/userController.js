@@ -164,7 +164,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     "host"
   )}/api/v1/password/reset/${resetToken}`;
 
-  const frontendurl = `https://javasports.in/reset-password/${resetToken}`;
+  const frontendurl = `https:/localhost:3000/reset-password/${resetToken}`;
 
   // const message = `Dear ${user.name},
 

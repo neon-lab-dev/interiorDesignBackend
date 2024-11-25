@@ -20,7 +20,7 @@ app.use(
 
 app.use(
   cors({
-    origin: ["https://javas-ports-frontend.vercel.app","http://localhost:3000","https://java-sports-livid.vercel.app","https://java-admin-panel.vercel.app","https://java-sports-six.vercel.app","https://www.javasports.in","www.javasports.in","https://javasports.in"],
+    origin: ["*", "http://localhost:3000", "http://localhost:5173"],
     credentials: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
   })

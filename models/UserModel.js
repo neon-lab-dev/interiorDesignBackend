@@ -86,7 +86,6 @@ const userSchema = new mongoose.Schema({
   },
   dob: {
     type: String,
-    required: [true, "Please Enter your date of birth"],
   },
   avatar: {
     fileId: {

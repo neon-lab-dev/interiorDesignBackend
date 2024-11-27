@@ -28,7 +28,7 @@ setInterval(deleteUsersWithExpiredOTP, 5 * 60 * 1000);
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-  const { full_name, phoneNo, email, password, confirm_password, dob } =
+  const { full_name, phoneNo, email, password, confirm_password } =
     req.body;
 
   if (
@@ -36,8 +36,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     !phoneNo ||
     !email ||
     !password ||
-    !confirm_password ||
-    !dob
+    !confirm_password
   )
     return next(new ErrorHandler("Please fill all details", 400));
 
@@ -62,7 +61,6 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     email,
     phoneNo,
     password,
-    dob,
     otp,
     otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRE * 60 * 1000),
   });

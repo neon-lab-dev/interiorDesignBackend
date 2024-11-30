@@ -298,7 +298,6 @@ exports.updateUserDetails = catchAsyncErrors(async (req, res, next) => {
   if (file) {
     const fileUri = getDataUri(file);
     const mycloud = await uploadFile(fileUri.content, fileUri.fileName, "user-avatars");
-    console.log(mycloud, "upload");
     if (user.avatar.fileId) {
       await deleteFile(user.avatar.fileId);
     }

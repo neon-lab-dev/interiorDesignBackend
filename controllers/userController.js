@@ -24,7 +24,7 @@ async function deleteUsersWithExpiredOTP() {
   }
 }
 
-setInterval(deleteUsersWithExpiredOTP, 5 * 60 * 1000);
+//setInterval(deleteUsersWithExpiredOTP, 5 * 60 * 1000);
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
@@ -54,8 +54,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   }
 
   const otp = Math.floor(Math.random() * 1000000);
-  console.log(otp);
 
+  //only for development
   user = await User.create({
     full_name,
     email,
@@ -63,15 +63,13 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     password,
     otp,
     otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRE * 60 * 1000),
+    verified: true
   });
 
-  const emailMessage = signUpEmailTemplate(user.full_name, otp);
-  await sendEmail(email, "Verify your account", emailMessage);
+  //const emailMessage = signUpEmailTemplate(user.full_name, otp);
+  //await sendEmail(email, "Verify your account", emailMessage);
 
-  res.status(201).json({
-    success: true,
-    message: "OTP sent to your email",
-  });
+  sendToken(user, 200, res, "User has been registered successfully!");
 });
 
 //verify

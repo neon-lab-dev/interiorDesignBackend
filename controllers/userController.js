@@ -61,8 +61,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     email,
     phoneNo,
     password,
-    otp,
-    otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRE * 60 * 1000),
+    //otp,
+    //otp_expiry: new Date(Date.now() + process.env.OTP_EXPIRE * 60 * 1000),
     verified: true
   });
 

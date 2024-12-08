@@ -12,17 +12,17 @@ const signUpEmailTemplate = require("../emails/signup-email.js");
 const { deleteFile, uploadFile } = require("../utils/uploadFile.js");
 const passwordResetEmailTemplate = require("../emails/password-reset.js");
 
-async function deleteUsersWithExpiredOTP() {
-  try {
-    const currentTime = Date.now();
-    await User.deleteMany({
-      otp_expiry: { $lte: currentTime },
-      otp: { $ne: null }, // Exclude users who have already verified OTP
-    });
-  } catch (error) {
-    console.error("Error deleting users with expired OTP:", error);
-  }
-}
+// async function deleteUsersWithExpiredOTP() {
+//   try {
+//     const currentTime = Date.now();
+//     await User.deleteMany({
+//       otp_expiry: { $lte: currentTime },
+//       otp: { $ne: null }, // Exclude users who have already verified OTP
+//     });
+//   } catch (error) {
+//     console.error("Error deleting users with expired OTP:", error);
+//   }
+// }
 
 //setInterval(deleteUsersWithExpiredOTP, 5 * 60 * 1000);
 

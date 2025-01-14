@@ -20,7 +20,7 @@ app.use(
 
 app.use(
   cors({
-    origin: ["*","https://spaceframe.co.in", "http://localhost:3000", "http://localhost:5173","https://interiordesign-wheat.vercel.app"],
+    origin: ["*","https://spaceframe.co.in", "http://localhost:3000", "http://localhost:5173","https://interiordesign-wheat.vercel.app","https://interiordesign-admin.vercel.app"],
     credentials: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
   })

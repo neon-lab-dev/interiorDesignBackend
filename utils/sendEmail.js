@@ -1,9 +1,8 @@
 const nodeMailer = require("nodemailer");
 
-// Remove the incorrect syntax from the import statement
 const createTransport = nodeMailer.createTransport;
 
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to, subject, htmlContent) => {
   const transporter = createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
@@ -16,7 +15,7 @@ const sendEmail = async (to, subject, text) => {
   await transporter.sendMail({
     to,
     subject,
-    text,
+    html: htmlContent,
   });
 };
 

@@ -137,7 +137,6 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Forgot Password
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   const { email } = req.body;
 
@@ -162,22 +161,23 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   const frontendurl = `https://interiordesign-wheat.vercel.app/reset-password/${resetToken}`;
 
-  const message = `Dear ${user.full_name},
+   const message = `Dear ${user.full_name},
 
-  We hope this email finds you well. It appears that you've requested to reset your password for your SpaceFrame account. We're here to assist you in securely resetting your password and getting you back to enjoying our platform hassle-free.
-  
-  To reset your password, please click on the following link:
-  
-  ${frontendurl}
-  
-  This link will expire in 15 minutes for security reasons, so please make sure to use it promptly. If you didn't initiate this password reset request, please disregard this email, and your account will remain secure.
-  
-  If you encounter any issues or have any questions, feel free to reach out to our support team at [support email] for further assistance. We're here to help you every step of the way.
-  
-  Thank you for choosing SpaceFrame. We appreciate your continued support.
-  
-  Best regards,
-  SpaceFrame Team`;
+   We hope this email finds you well. It appears that you've requested to reset your password for your SpaceFrame account. We're here to assist you in securely resetting your password and getting you back to enjoying our platform hassle-free.
+
+   To reset your password, please click on the following link:
+
+   ${frontendurl}
+
+   This link will expire in 15 minutes for security reasons, so please make sure to use it promptly. If you didn't initiate this password reset request, please disregard this email, and your account will remain secure.
+
+   If you encounter any issues or have any questions, feel free to reach out to our support team at [support email] for further assistance. We're here to help you every step of the way.
+
+   Thank you for choosing SpaceFrame. We appreciate your continued support.
+
+   Best regards,
+   SpaceFrame Team`;
+  const message = passwordResetEmailTemplate(user.full_name, frontendurl);
 
   try {
     await sendEmail(user.email, "Password Reset Link for SpaceFrame Account", message);

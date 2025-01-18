@@ -161,7 +161,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     "host"
   )}/api/v1/password/reset/${resetToken}`;
 
-  const frontendurl = `http://localhost:5173/reset-password/${resetToken}`;
+  const frontendurl = `https://interiordesign-wheat.vercel.app/reset-password/${resetToken}`;
 
    // const message = `Dear ${user.full_name},
 
